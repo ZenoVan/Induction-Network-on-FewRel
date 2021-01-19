@@ -21,8 +21,17 @@ print("{}-way-{}-shot Few-Shot Relation Classification".format(N, K))
 print("Model: {}".format(model_name))
 
 max_length = 40
-train_data_loader = JSONFileDataLoader('./data/train.json', './data/glove.6B.50d.json', max_length=max_length)
-val_data_loader = JSONFileDataLoader('./data/val.json', './data/glove.6B.50d.json', max_length=max_length)
+# train_data_loader = JSONFileDataLoader('./data/train.json', './data/glove.6B.50d.json', max_length=max_length)
+# train_data_loader = JSONFileDataLoader('./data/train-news.json', './data/glove.6B.50d.json', max_length=max_length)
+# train_data_loader = JSONFileDataLoader('./data/train-amazon.json', './data/glove.6B.50d.json', max_length=max_length)
+# train_data_loader = JSONFileDataLoader('./data/train-huffpost.json', './data/glove.6B.50d.json', max_length=max_length)
+train_data_loader = JSONFileDataLoader('./data/train-reuters.json', './data/glove.6B.50d.json', max_length=max_length)
+
+# val_data_loader = JSONFileDataLoader('./data/val.json', './data/glove.6B.50d.json', max_length=max_length)
+# val_data_loader = JSONFileDataLoader('./data/val-news.json', './data/glove.6B.50d.json', max_length=max_length)
+# val_data_loader = JSONFileDataLoader('./data/val-amazon.json', './data/glove.6B.50d.json', max_length=max_length)
+# val_data_loader = JSONFileDataLoader('./data/val-huffpost.json', './data/glove.6B.50d.json', max_length=max_length)
+val_data_loader = JSONFileDataLoader('./data/val-reuters.json', './data/glove.6B.50d.json', max_length=max_length)
 
 if model_name == 'induction':
     model = InductionGraph(N, K, 5,
